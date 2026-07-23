@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerospace Medicine Interest Group - Boise State</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #003f87;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --text: #333;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #004fa3 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: var(--accent);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-text ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .event-date {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .event-details {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Officers */
+        .officers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .officer-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .officer-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .officer-title {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .officer-contact {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Materials Section */
+        .materials-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .material-item {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .material-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .material-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .material-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .request-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .request-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Research Opportunities */
+        .opportunities-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .opportunity-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .opportunity-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .opportunity-desc {
+            color: #666;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+
+        .notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">✈️ AMIG</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#calendar">Calendar</a></li>
+                <li><a href="#officers">Officers</a></li>
+                <li><a href="#materials">Materials</a></li>
+                <li><a href="#research">Research</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Aerospace Medicine Interest Group</h1>
+            <p>Boise State School of Medicine | Connecting future physicians with aerospace medicine</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Our Organization</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>The Aerospace Medicine Interest Group is dedicated to exploring the fascinating intersection of medicine and aviation. We bring together medical students, faculty, and professionals interested in the unique challenges and opportunities in aerospace medicine.</p>
+                    
+                    <h3>What We Do</h3>
+                    <ul>
+                        <li>Host guest speakers and clinical educators</li>
+                        <li>Discuss current topics in aerospace medicine</li>
+                        <li>Explore career pathways and opportunities</li>
+                        <li>Connect students with mentors and research opportunities</li>
+                        <li>Build a community of aerospace medicine enthusiasts</li>
+                    </ul>
+
+                    <h3>Join Us</h3>
+                    <p>Whether you're curious about aviation physiology, interested in becoming an aerospace medicine physician, or simply want to learn more about this specialized field, we welcome you! Contact one of our officers to get involved.</p>
+                </div>
+                <div style="background: var(--light); padding: 2rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Aerospace Medicine</h3>
+                    <p style="color: #666;">Bridging medicine and aviation for safer, healthier flight</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar">
+            <h2>Event Calendar</h2>
+            <p style="margin-bottom: 1.5rem;">Join us for upcoming meetings and events. Check back regularly for updates!</p>
+            <div class="calendar-grid">
+                <div class="event-card">
+                    <div class="event-date">📅 September 15, 2026</div>
+                    <div class="event-title">Organizational Meeting</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM<br>
+                        <strong>Location:</strong> TBA<br>
+                        <strong>Description:</strong> Meet the officers and learn about the year ahead!
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">📅 October 6, 2026</div>
+                    <div class="event-title">Guest Speaker: Introduction to Aerospace Medicine</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM<br>
+                        <strong>Location:</strong> TBA<br>
+                        <strong>Description:</strong> An overview of the field and career opportunities.
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">📅 November 3, 2026</div>
+                    <div class="event-title">Aviation Physiology Workshop</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM<br>
+                        <strong>Location:</strong> TBA<br>
+                        <strong>Description:</strong> Dive deep into the physiological challenges of flight.
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">📅 December 1, 2026</div>
+                    <div class="event-title">Career Panel Discussion</div>
+                    <div class="event-details">
+                        <strong>Time:</strong> 6:00 PM<br>
+                        <strong>Location:</strong> TBA<br>
+                        <strong>Description:</strong> Hear from practicing aerospace medicine physicians.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Officers Section -->
+        <section id="officers">
+            <h2>Meet the Officers</h2>
+            <p style="margin-bottom: 1.5rem;">Our leadership team is here to support you and keep our community thriving.</p>
+            <div class="officers-grid">
+                <div class="officer-card">
+                    <div class="officer-name">Your Name</div>
+                    <div class="officer-title">President</div>
+                    <div class="officer-contact">
+                        📧 <a href="mailto:your.email@boisestate.edu" class="contact-link">your.email@boisestate.edu</a>
+                    </div>
+                </div>
+
+                <div class="officer-card">
+                    <div class="officer-name">Officer Name</div>
+                    <div class="officer-title">Vice President</div>
+                    <div class="officer-contact">
+                        📧 <a href="mailto:officer.email@boisestate.edu" class="contact-link">officer.email@boisestate.edu</a>
+                    </div>
+                </div>
+
+                <div class="officer-card">
+                    <div class="officer-name">Officer Name</div>
+                    <div class="officer-title">Secretary</div>
+                    <div class="officer-contact">
+                        📧 <a href="mailto:officer.email@boisestate.edu" class="contact-link">officer.email@boisestate.edu</a>
+                    </div>
+                </div>
+
+                <div class="officer-card">
+                    <div class="officer-name">Officer Name</div>
+                    <div class="officer-title">Treasurer</div>
+                    <div class="officer-contact">
+                        📧 <a href="mailto:officer.email@boisestate.edu" class="contact-link">officer.email@boisestate.edu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materials">
+            <h2>Materials & Resources</h2>
+            <div class="notice">
+                <strong>Note:</strong> Recordings will only be given upon request and are subject to change.
+            </div>
+            <p style="margin-bottom: 1.5rem;">Access resources from our past meetings and events below.</p>
+            <div class="materials-list">
+                <div class="material-item">
+                    <div class="material-title">Introduction to Aerospace Medicine</div>
+                    <div class="material-date">October 6, 2026</div>
+                    <div class="material-description">
+                        Comprehensive overview covering the basics of aerospace medicine, pilot physiology, and medical certification requirements.
+                    </div>
+                    <button class="request-btn" onclick="requestRecording('Introduction to Aerospace Medicine')">Request Recording</button>
+                </div>
+
+                <div class="material-item">
+                    <div class="material-title">Aviation Physiology Workshop</div>
+                    <div class="material-date">November 3, 2026</div>
+                    <div class="material-description">
+                        In-depth exploration of hypoxia, decompression sickness, spatial disorientation, and other physiological effects of flight.
+                    </div>
+                    <button class="request-btn" onclick="requestRecording('Aviation Physiology Workshop')">Request Recording</button>
+                </div>
+
+                <div class="material-item">
+                    <div class="material-title">Career Panel Discussion</div>
+                    <div class="material-date">December 1, 2026</div>
+                    <div class="material-description">
+                        Q&A session with practicing aerospace medicine physicians discussing their career paths and experiences.
+                    </div>
+                    <button class="request-btn" onclick="requestRecording('Career Panel Discussion')">Request Recording</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Opportunities Section -->
+        <section id="research">
+            <h2>Research Opportunities</h2>
+            <p style="margin-bottom: 1.5rem;">Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved.</p>
+            <div class="opportunities-list">
+                <div class="opportunity-card">
+                    <div class="opportunity-title">Aviation Medical Examiner Shadowing</div>
+                    <div class="opportunity-desc">
+                        Shadow an Aviation Medical Examiner to learn about medical certification of pilots and the practical aspects of aerospace medicine in clinical practice.
+                    </div>
+                    <a href="mailto:your.email@boisestate.edu" class="contact-link">Contact for details →</a>
+                </div>
+
+                <div class="opportunity-card">
+                    <div class="opportunity-title">Hypoxia & Altitude Research</div>
+                    <div class="opportunity-desc">
+                        Participate in research studying the physiological effects of altitude and hypoxia. Great opportunity to learn about research methodology and respiratory physiology.
+                    </div>
+                    <a href="mailto:your.email@boisestate.edu" class="contact-link">Contact for details →</a>
+                </div>
+
+                <div class="opportunity-card">
+                    <div class="opportunity-title">Pilot Health & Telemedicine</div>
+                    <div class="opportunity-desc">
+                        Explore innovative approaches to remote medical care for pilots and remote locations. Combines aerospace medicine with modern technology.
+                    </div>
+                    <a href="mailto:your.email@boisestate.edu" class="contact-link">Contact for details →</a>
+                </div>
+
+                <div class="opportunity-card">
+                    <div class="opportunity-title">Spatial Disorientation & Vestibular Research</div>
+                    <div class="opportunity-desc">
+                        Study the vestibular system and spatial disorientation in aviation contexts. This research has direct clinical applications.
+                    </div>
+                    <a href="mailto:your.email@boisestate.edu" class="contact-link">Contact for details →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Aerospace Medicine Interest Group | Boise State School of Medicine</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Questions? Reach out to one of our officers!</p>
+    </footer>
+
+    <script>
+        function requestRecording(title) {
+            const email = prompt('Please enter your email address:');
+            if (email) {
+                alert(`Thank you! We've noted your request for "${title}".\n\nWe'll reach out to you at ${email} with the recording link.`);
+            }
+        }
+    </script>
+</body>
+</html>
