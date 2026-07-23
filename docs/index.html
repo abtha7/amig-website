@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Enhanced Starfield Background */
+        /* Starfield Background */
         body::before {
             content: '';
             position: fixed;
@@ -43,31 +43,36 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 90px 10px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 10px 90px, rgba(255,255,255,0.5), rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 130px 130px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 70px 30px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                radial-gradient(1.5px 1.5px at 40px 80px, rgba(200,220,255,0.7), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 110px 10px, rgba(255,240,200,0.6), rgba(255,255,255,0));
+                radial-gradient(1.5px 1.5px at 20px 30px, white, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 60px 70px, #ddd, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 50px 50px, white, rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 130px 80px, #fff, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 90px 10px, #e0e0e0, rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 10px 90px, white, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 130px 130px, #ddd, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 70px 30px, white, rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 40px 80px, #e8f0ff, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 110px 10px, #ffe8d0, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 20px 140px, white, rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 100px 100px, #fff, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 30px 80px, #ddd, rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 120px 140px, white, rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 80px 120px, #e0e0e0, rgba(255,255,255,0));
             background-repeat: repeat;
-            background-size: 200px 200px;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 140px, 20px 120px, 90px 40px, 160px 90px, 50px 10px, 100px 160px;
+            background-size: 150px 150px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 140px, 20px 120px, 90px 40px, 160px 90px, 50px 10px, 100px 160px, 60px 140px, 110px 70px, 30px 50px, 140px 110px, 80px 30px;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.7;
+            opacity: 0.8;
             animation: twinkle 8s ease-in-out infinite;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 0.9; }
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
 
-        /* Floating Medical Elements */
+        /* Floating Medical Molecules */
         body::after {
             content: '';
             position: fixed;
@@ -76,21 +81,20 @@
             width: 100%;
             height: 100%;
             background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(240,86,38,0.08)" stroke-width="2"/><line x1="50" y1="20" x2="50" y2="80" stroke="rgba(240,86,38,0.08)" stroke-width="1.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="rgba(240,86,38,0.08)" stroke-width="1.5"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 Q70 50 50 80 Q30 50 50 20" fill="none" stroke="rgba(30,90,150,0.06)" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="rgba(30,90,150,0.08)"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="6" fill="rgba(27,127,111,0.07)"/><circle cx="70" cy="70" r="6" fill="rgba(27,127,111,0.07)"/><line x1="30" y1="30" x2="70" y2="70" stroke="rgba(27,127,111,0.07)" stroke-width="1.5"/><circle cx="50" cy="50" r="3" fill="rgba(27,127,111,0.1)"/></svg>');
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="30" r="5" fill="rgba(240,86,38,0.06)"/><circle cx="35" cy="60" r="5" fill="rgba(240,86,38,0.06)"/><circle cx="65" cy="60" r="5" fill="rgba(240,86,38,0.06)"/><line x1="50" y1="30" x2="35" y2="60" stroke="rgba(240,86,38,0.06)" stroke-width="1.5"/><line x1="50" y1="30" x2="65" y2="60" stroke="rgba(240,86,38,0.06)" stroke-width="1.5"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="3" fill="rgba(30,90,150,0.08)"/><circle cx="40" cy="40" r="2.5" fill="rgba(30,90,150,0.08)"/><circle cx="60" cy="40" r="2.5" fill="rgba(30,90,150,0.08)"/><circle cx="40" cy="60" r="2.5" fill="rgba(30,90,150,0.08)"/><circle cx="60" cy="60" r="2.5" fill="rgba(30,90,150,0.08)"/><line x1="50" y1="50" x2="40" y2="40" stroke="rgba(30,90,150,0.05)" stroke-width="1"/><line x1="50" y1="50" x2="60" y2="40" stroke="rgba(30,90,150,0.05)" stroke-width="1"/><line x1="50" y1="50" x2="40" y2="60" stroke="rgba(30,90,150,0.05)" stroke-width="1"/><line x1="50" y1="50" x2="60" y2="60" stroke="rgba(30,90,150,0.05)" stroke-width="1"/></svg>');
             background-repeat: repeat;
-            background-size: 400px 400px, 500px 500px, 600px 600px;
-            background-position: 0 0, 100px 100px, 200px 200px;
+            background-size: 300px 300px, 400px 400px;
+            background-position: 0 0, 150px 150px;
             pointer-events: none;
             z-index: 0;
             animation: float 20s linear infinite;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-20px) translateX(10px); }
-            100% { transform: translateY(0px) translateX(0px); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
         /* Header & Navigation */
@@ -541,6 +545,64 @@
             font-size: 0.95rem;
         }
 
+        .link-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--primary);
+        }
+
+        .link-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, rgba(240, 86, 38, 0.05) 0%, rgba(42, 95, 127, 0.05) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .link-desc {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .external-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(240, 86, 38, 0.3);
+        }
+
+        .external-link:hover {
+            background: #e84a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.4);
+        }
+
         .notice {
             background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
             border-left: 4px solid var(--primary);
@@ -572,7 +634,7 @@
                 font-size: 1.8rem;
             }
 
-            .about-content, .routes-container {
+            .about-content, .routes-container, .link-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -832,11 +894,19 @@
                     <p>Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved in meaningful medical research that bridges aviation and healthcare.</p>
                     <div class="opportunities-list">
                         <div class="opportunity-card">
+                            <div class="opportunity-title">NASA Aerospace Medicine Clerkship</div>
+                            <div class="opportunity-desc">
+                                Four-week intensive clerkship for 4th-year medical students offered twice annually in April and October. Available at NASA Johnson Space Center (Houston, TX) and Kennedy Space Center (Florida). Includes lectures on aerospace medicine topics, pilot physiology, medical certification, and tours of NASA facilities.
+                            </div>
+                            <a href="https://www.nasa.gov/directorates/esdmd/hhp/aerospace-medicine-clerkship/" class="external-link" target="_blank">Learn More</a>
+                        </div>
+
+                        <div class="opportunity-card">
                             <div class="opportunity-title">Aviation Medical Examiner Shadowing</div>
                             <div class="opportunity-desc">
                                 Shadow an Aviation Medical Examiner to learn about medical certification of pilots and the practical aspects of aerospace medicine in clinical practice.
                             </div>
-                            <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
+                            <a href="mailto:your.email@icom.edu" class="external-link">Contact for Details</a>
                         </div>
 
                         <div class="opportunity-card">
@@ -844,15 +914,7 @@
                             <div class="opportunity-desc">
                                 Participate in research studying the physiological effects of altitude and hypoxia. Great opportunity to learn about research methodology and respiratory physiology.
                             </div>
-                            <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
-                        </div>
-
-                        <div class="opportunity-card">
-                            <div class="opportunity-title">Pilot Health & Telemedicine</div>
-                            <div class="opportunity-desc">
-                                Explore innovative approaches to remote medical care for pilots and remote locations. Combines aerospace medicine with modern technology.
-                            </div>
-                            <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
+                            <a href="mailto:your.email@icom.edu" class="external-link">Contact for Details</a>
                         </div>
 
                         <div class="opportunity-card">
@@ -860,7 +922,44 @@
                             <div class="opportunity-desc">
                                 Study the vestibular system and spatial disorientation in aviation contexts. This research has direct clinical applications.
                             </div>
-                            <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
+                            <a href="mailto:your.email@icom.edu" class="external-link">Contact for Details</a>
+                        </div>
+                    </div>
+
+                    <div class="link-section">
+                        <h3>National Organizations & Conferences</h3>
+                        <div class="link-grid">
+                            <div class="link-card">
+                                <div class="link-title">Aerospace Medical Association (AsMA)</div>
+                                <div class="link-desc">
+                                    The primary organization for aerospace medicine professionals and students. Publishes the journal Aviation, Space, and Environmental Medicine and hosts the annual scientific meeting.
+                                </div>
+                                <a href="https://asma.org/" class="external-link" target="_blank">Visit AsMA</a>
+                            </div>
+
+                            <div class="link-card">
+                                <div class="link-title">AMSRO (Aerospace Medicine Student & Resident Organization)</div>
+                                <div class="link-desc">
+                                    Official student and resident organization of AsMA. Provides mentorship, networking, and education opportunities for medical students and residents interested in aerospace medicine.
+                                </div>
+                                <a href="https://www.amsro.org/" class="external-link" target="_blank">Visit AMSRO</a>
+                            </div>
+
+                            <div class="link-card">
+                                <div class="link-title">AsMA Annual Scientific Meeting</div>
+                                <div class="link-desc">
+                                    Premier annual conference for aerospace medicine professionals. Features presentations on cutting-edge research, clinical updates, and networking opportunities. Held in May annually.
+                                </div>
+                                <a href="https://asma.org/education-events/annual-scientific-meeting/" class="external-link" target="_blank">Learn More</a>
+                            </div>
+
+                            <div class="link-card">
+                                <div class="link-title">ASGSR (American Society for Gravitational and Space Research)</div>
+                                <div class="link-desc">
+                                    Organization focused on biological and physical sciences research in, of, and for space. Annual conference showcases research in gravitational biology, radiation biology, and bioastronautics.
+                                </div>
+                                <a href="https://asgsr.org/" class="external-link" target="_blank">Visit ASGSR</a>
+                            </div>
                         </div>
                     </div>
                 </div>
