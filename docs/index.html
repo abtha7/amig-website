@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aerospace Medicine Interest Group - Idaho College of Osteopathic Medicine</title>
+    <title>Aerospace Medicine Interest Group - ICOM</title>
     <style>
         * {
             margin: 0;
@@ -11,21 +11,28 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         :root {
-            --primary: #003f87;
-            --accent: #ff6b35;
-            --light: #f8f9fa;
-            --text: #333;
-            --border: #ddd;
+            --primary: #F05626;
+            --dark: #4D4F4E;
+            --light-bg: #FEFEFE;
+            --gray-bg: #EDEDED;
+            --accent: #2a5f7f;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%),
-                        url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80') center/cover fixed;
-            background-blend-mode: overlay;
+            color: var(--dark);
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%),
+                        radial-gradient(circle at 20% 50%, rgba(240, 86, 38, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(42, 95, 127, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+            background-size: cover, cover, cover;
             position: relative;
         }
 
@@ -36,10 +43,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 20% 50%, rgba(0, 63, 135, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.5), rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 90px 10px, rgba(255,255,255,0.6), rgba(255,255,255,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 140px;
             pointer-events: none;
             z-index: 0;
+            opacity: 0.6;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.8; }
         }
 
         main, section, header {
@@ -49,14 +70,14 @@
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(90deg, rgba(0, 63, 135, 0.95) 0%, rgba(0, 79, 163, 0.95) 100%);
+            background: linear-gradient(90deg, rgba(15, 20, 25, 0.97) 0%, rgba(26, 35, 50, 0.97) 100%);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 107, 53, 0.2);
-            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(240, 86, 38, 0.15);
+            border-bottom: 3px solid var(--primary);
             backdrop-filter: blur(10px);
         }
 
@@ -70,12 +91,10 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            letter-spacing: 2px;
+            color: var(--primary);
         }
 
         .nav-links {
@@ -87,50 +106,38 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+            color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(0, 63, 135, 0.75) 0%, rgba(0, 79, 163, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(15, 20, 25, 0.85) 0%, rgba(26, 35, 50, 0.85) 100%);
             color: white;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
-            border-bottom: 3px solid var(--accent);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--primary);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(240, 86, 38, 0.1);
             position: relative;
-        }
-
-        .hero::before {
-            content: '❤️ 🔬';
-            position: absolute;
-            top: 10%;
-            right: 5%;
-            font-size: 3rem;
-            opacity: 0.1;
-            animation: float 4s ease-in-out infinite;
+            overflow: hidden;
         }
 
         .hero::after {
-            content: '✈️ 💊';
+            content: '';
             position: absolute;
-            bottom: 10%;
-            left: 5%;
-            font-size: 3rem;
-            opacity: 0.1;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(240, 86, 38, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(42, 95, 127, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -141,9 +148,11 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            color: white;
         }
 
         .hero p {
@@ -160,36 +169,33 @@
         }
 
         section {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%);
+            background: linear-gradient(135deg, rgba(254, 254, 254, 0.98) 0%, rgba(237, 237, 237, 0.98) 100%);
             margin-bottom: 2rem;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 107, 53, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid var(--primary);
             position: relative;
-            overflow: hidden;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 107, 53, 0.03) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         h2 {
             color: var(--primary);
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        p {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.8;
         }
 
         /* About Section */
@@ -198,116 +204,171 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             align-items: start;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-text h3 {
-            color: var(--accent);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
         }
 
         .about-text ul {
-            margin-left: 1.5rem;
+            margin-left: 2rem;
             margin-bottom: 1rem;
         }
 
         .about-text li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            color: var(--dark);
         }
 
         .about-box {
-            background: linear-gradient(135deg, rgba(0, 63, 135, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(240, 86, 38, 0.05) 0%, rgba(42, 95, 127, 0.05) 100%);
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
-            border: 2px solid rgba(255, 107, 53, 0.2);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.1);
+        }
+
+        .about-box h3 {
+            color: var(--primary);
+            margin-top: 0;
         }
 
         /* Calendar */
         .calendar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .event-card {
-            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 1.5rem;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--primary);
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(255, 107, 53, 0.2);
         }
 
         .event-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2), 0 0 15px rgba(255, 107, 53, 0.1);
+            box-shadow: 0 8px 20px rgba(240, 86, 38, 0.2);
         }
 
         .event-date {
-            font-weight: bold;
-            color: var(--accent);
-            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
             margin-bottom: 0.5rem;
         }
 
         .event-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--primary);
+            color: var(--accent);
+            font-size: 1.05rem;
         }
 
         .event-details {
-            font-size: 0.95rem;
-            color: #666;
+            font-size: 0.9rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Career Routes */
+        .routes-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .route-card {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary);
+        }
+
+        .route-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .route-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .route-list li {
+            padding: 0.7rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .route-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
         /* Officers */
         .officers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
             margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .officer-card {
-            background: linear-gradient(135deg, var(--light) 0%, rgba(248, 249, 250, 0.8) 100%);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
             border-top: 4px solid var(--primary);
-            border: 1px solid rgba(0, 63, 135, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
         .officer-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 63, 135, 0.2);
         }
 
         .officer-name {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--accent);
             margin-bottom: 0.3rem;
         }
 
         .officer-title {
-            color: var(--accent);
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .officer-contact {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
         }
 
         /* Materials Section */
@@ -315,21 +376,19 @@
             display: grid;
             gap: 1.5rem;
             margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .material-item {
-            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 1.5rem;
             border-radius: 8px;
-            border-left: 4px solid var(--primary);
-            border: 1px solid rgba(0, 63, 135, 0.1);
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .material-title {
             font-weight: 600;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 0.5rem;
             font-size: 1.05rem;
         }
@@ -341,26 +400,27 @@
         }
 
         .material-description {
-            color: #666;
+            color: var(--dark);
             font-size: 0.95rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .request-btn {
-            background: linear-gradient(135deg, var(--accent) 0%, #ff8452 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #e84a1a 100%);
             color: white;
             border: none;
             padding: 0.6rem 1.2rem;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
+            font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.3);
         }
 
         .request-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 16px rgba(240, 86, 38, 0.4);
         }
 
         /* Research Opportunities */
@@ -368,67 +428,65 @@
             display: grid;
             gap: 1.5rem;
             margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .opportunity-card {
-            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 1.5rem;
             border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            border: 1px solid rgba(255, 107, 53, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
         .opportunity-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
         }
 
         .opportunity-title {
             font-weight: 600;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 0.5rem;
             font-size: 1.05rem;
         }
 
         .opportunity-desc {
-            color: #666;
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-
-        .contact-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .contact-link:hover {
-            color: var(--primary);
-            text-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(90deg, rgba(0, 63, 135, 0.95) 0%, rgba(0, 79, 163, 0.95) 100%);
+            background: linear-gradient(90deg, rgba(15, 20, 25, 0.97) 0%, rgba(26, 35, 50, 0.97) 100%);
             color: white;
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
-            border-top: 2px solid var(--accent);
+            border-top: 3px solid var(--primary);
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(10px);
         }
 
-        /* Responsive */
+        footer p {
+            color: white;
+        }
+
+        .notice {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 gap: 1rem;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .hero h1 {
@@ -436,6 +494,10 @@
             }
 
             .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .routes-container {
                 grid-template-columns: 1fr;
             }
 
@@ -447,27 +509,15 @@
                 padding: 1.5rem;
             }
         }
-
-        .notice {
-            background: linear-gradient(135deg, #fff3cd 0%, #fffbea 100%);
-            border-left: 4px solid #ffc107;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            color: #856404;
-            position: relative;
-            z-index: 1;
-        }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
     <header>
         <nav>
-            <div class="logo">✈️ AMIG 💊</div>
+            <div class="logo">AMIG</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#career">Career Routes</a></li>
                 <li><a href="#calendar">Calendar</a></li>
                 <li><a href="#officers">Officers</a></li>
                 <li><a href="#materials">Materials</a></li>
@@ -476,7 +526,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
             <h1>Aerospace Medicine Interest Group</h1>
@@ -484,9 +533,7 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main>
-        <!-- About Section -->
         <section id="about">
             <h2>About Our Organization</h2>
             <div class="about-content">
@@ -506,20 +553,49 @@
                     <p>Whether you're curious about aviation physiology, interested in becoming an aerospace medicine physician, or simply want to learn more about this specialized field, we welcome you! Contact one of our officers to get involved.</p>
                 </div>
                 <div class="about-box">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">✈️ ❤️ 🔬</div>
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Where Medicine Meets the Sky</h3>
-                    <p style="color: #666;">Bridging aerospace exploration with clinical excellence and patient care</p>
+                    <h3>Aerospace Medicine</h3>
+                    <p>The medical science of flying safely in the aerospace environment. Aerospace medicine encompasses the prevention and treatment of physiological and medical conditions unique to aviation.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Calendar Section -->
+        <section id="career">
+            <h2>Career Routes in Aerospace Medicine</h2>
+            <p>Aerospace medicine offers two primary career pathways. Each has distinct benefits, training requirements, and lifestyle considerations.</p>
+            <div class="routes-container">
+                <div class="route-card">
+                    <div class="route-title">Civilian Route</div>
+                    <ul class="route-list">
+                        <li>Aviation Medical Examiner (AME) certification</li>
+                        <li>Work in private practice or aeromedical facilities</li>
+                        <li>Conduct pilot medical evaluations</li>
+                        <li>Telemedicine and remote medical support</li>
+                        <li>Civil aviation consulting</li>
+                        <li>Commercial airline medical positions</li>
+                        <li>Flexible scheduling and location options</li>
+                    </ul>
+                </div>
+                <div class="route-card">
+                    <div class="route-title">Military Route</div>
+                    <ul class="route-list">
+                        <li>Air Force Aerospace Medicine residency</li>
+                        <li>Flight surgeon positions</li>
+                        <li>Military pilot and aircrew medical support</li>
+                        <li>Advanced training in hypoxia and G-force physiology</li>
+                        <li>High-altitude and pressure suit expertise</li>
+                        <li>Combat aviation medicine</li>
+                        <li>Active duty commitment with structured advancement</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="calendar">
             <h2>Event Calendar</h2>
-            <p style="margin-bottom: 1.5rem;">Join us for upcoming meetings and events. Check back regularly for updates!</p>
+            <p>Join us for upcoming meetings and events. Check back regularly for updates!</p>
             <div class="calendar-grid">
                 <div class="event-card">
-                    <div class="event-date">📅 September 15, 2026</div>
+                    <div class="event-date">September 15, 2026</div>
                     <div class="event-title">Organizational Meeting</div>
                     <div class="event-details">
                         <strong>Time:</strong> 6:00 PM<br>
@@ -529,7 +605,7 @@
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date">📅 October 6, 2026</div>
+                    <div class="event-date">October 6, 2026</div>
                     <div class="event-title">Guest Speaker: Introduction to Aerospace Medicine</div>
                     <div class="event-details">
                         <strong>Time:</strong> 6:00 PM<br>
@@ -539,7 +615,7 @@
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date">📅 November 3, 2026</div>
+                    <div class="event-date">November 3, 2026</div>
                     <div class="event-title">Aviation Physiology Workshop</div>
                     <div class="event-details">
                         <strong>Time:</strong> 6:00 PM<br>
@@ -549,7 +625,7 @@
                 </div>
 
                 <div class="event-card">
-                    <div class="event-date">📅 December 1, 2026</div>
+                    <div class="event-date">December 1, 2026</div>
                     <div class="event-title">Career Panel Discussion</div>
                     <div class="event-details">
                         <strong>Time:</strong> 6:00 PM<br>
@@ -560,16 +636,15 @@
             </div>
         </section>
 
-        <!-- Officers Section -->
         <section id="officers">
             <h2>Meet the Officers</h2>
-            <p style="margin-bottom: 1.5rem;">Our leadership team is here to support you and keep our community thriving.</p>
+            <p>Our leadership team is here to support you and keep our community thriving.</p>
             <div class="officers-grid">
                 <div class="officer-card">
                     <div class="officer-name">Your Name</div>
                     <div class="officer-title">President</div>
                     <div class="officer-contact">
-                        📧 <a href="mailto:your.email@icom.edu" class="contact-link">your.email@icom.edu</a>
+                        <a href="mailto:your.email@icom.edu" class="contact-link">your.email@icom.edu</a>
                     </div>
                 </div>
 
@@ -577,7 +652,7 @@
                     <div class="officer-name">Officer Name</div>
                     <div class="officer-title">Vice President</div>
                     <div class="officer-contact">
-                        📧 <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
+                        <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
                     </div>
                 </div>
 
@@ -585,7 +660,7 @@
                     <div class="officer-name">Officer Name</div>
                     <div class="officer-title">Outreach Chair</div>
                     <div class="officer-contact">
-                        📧 <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
+                        <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
                     </div>
                 </div>
 
@@ -593,7 +668,7 @@
                     <div class="officer-name">Officer Name</div>
                     <div class="officer-title">Events Chair</div>
                     <div class="officer-contact">
-                        📧 <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
+                        <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
                     </div>
                 </div>
 
@@ -601,19 +676,17 @@
                     <div class="officer-name">Officer Name</div>
                     <div class="officer-title">Treasurer</div>
                     <div class="officer-contact">
-                        📧 <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
+                        <a href="mailto:officer.email@icom.edu" class="contact-link">officer.email@icom.edu</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Materials Section -->
         <section id="materials">
             <h2>Materials & Resources</h2>
             <div class="notice">
                 <strong>Note:</strong> Recordings will only be given upon request and are subject to change.
             </div>
-            <p style="margin-bottom: 1.5rem;">Access resources from our past meetings and events below.</p>
             <div class="materials-list">
                 <div class="material-item">
                     <div class="material-title">Introduction to Aerospace Medicine</div>
@@ -644,17 +717,16 @@
             </div>
         </section>
 
-        <!-- Research Opportunities Section -->
         <section id="research">
             <h2>Research Opportunities</h2>
-            <p style="margin-bottom: 1.5rem;">Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved.</p>
+            <p>Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved.</p>
             <div class="opportunities-list">
                 <div class="opportunity-card">
                     <div class="opportunity-title">Aviation Medical Examiner Shadowing</div>
                     <div class="opportunity-desc">
                         Shadow an Aviation Medical Examiner to learn about medical certification of pilots and the practical aspects of aerospace medicine in clinical practice.
                     </div>
-                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details →</a>
+                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
                 </div>
 
                 <div class="opportunity-card">
@@ -662,7 +734,7 @@
                     <div class="opportunity-desc">
                         Participate in research studying the physiological effects of altitude and hypoxia. Great opportunity to learn about research methodology and respiratory physiology.
                     </div>
-                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details →</a>
+                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
                 </div>
 
                 <div class="opportunity-card">
@@ -670,7 +742,7 @@
                     <div class="opportunity-desc">
                         Explore innovative approaches to remote medical care for pilots and remote locations. Combines aerospace medicine with modern technology.
                     </div>
-                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details →</a>
+                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
                 </div>
 
                 <div class="opportunity-card">
@@ -678,16 +750,14 @@
                     <div class="opportunity-desc">
                         Study the vestibular system and spatial disorientation in aviation contexts. This research has direct clinical applications.
                     </div>
-                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details →</a>
+                    <a href="mailto:your.email@icom.edu" class="contact-link">Contact for details</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Aerospace Medicine Interest Group | Idaho College of Osteopathic Medicine</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Questions? Reach out to one of our officers!</p>
     </footer>
 
     <script>
