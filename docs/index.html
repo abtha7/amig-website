@@ -17,6 +17,8 @@
             --light-bg: #FEFEFE;
             --gray-bg: #EDEDED;
             --accent: #2a5f7f;
+            --medical-green: #1b7f6f;
+            --medical-blue: #1e5a96;
         }
 
         body {
@@ -29,8 +31,10 @@
             background-attachment: fixed;
             background-size: cover, cover, cover;
             position: relative;
+            overflow-x: hidden;
         }
 
+        /* Enhanced Starfield Background */
         body::before {
             content: '';
             position: fixed;
@@ -39,23 +43,54 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.5), rgba(255,255,255,0)),
-                radial-gradient(2px 2px at 90px 10px, rgba(255,255,255,0.6), rgba(255,255,255,0));
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 60px 70px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 50px 50px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 90px 10px, rgba(255,255,255,0.7), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 10px 90px, rgba(255,255,255,0.5), rgba(255,255,255,0)),
+                radial-gradient(2px 2px at 130px 130px, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 70px 30px, rgba(255,255,255,0.6), rgba(255,255,255,0)),
+                radial-gradient(1.5px 1.5px at 40px 80px, rgba(200,220,255,0.7), rgba(255,255,255,0)),
+                radial-gradient(1px 1px at 110px 10px, rgba(255,240,200,0.6), rgba(255,255,255,0));
             background-repeat: repeat;
             background-size: 200px 200px;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 140px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 140px, 20px 120px, 90px 40px, 160px 90px, 50px 10px, 100px 160px;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.6;
+            opacity: 0.7;
             animation: twinkle 8s ease-in-out infinite;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 0.8; }
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.9; }
+        }
+
+        /* Floating Medical Elements */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(240,86,38,0.08)" stroke-width="2"/><line x1="50" y1="20" x2="50" y2="80" stroke="rgba(240,86,38,0.08)" stroke-width="1.5"/><line x1="20" y1="50" x2="80" y2="50" stroke="rgba(240,86,38,0.08)" stroke-width="1.5"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 Q70 50 50 80 Q30 50 50 20" fill="none" stroke="rgba(30,90,150,0.06)" stroke-width="2"/><circle cx="50" cy="50" r="8" fill="rgba(30,90,150,0.08)"/></svg>'),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="6" fill="rgba(27,127,111,0.07)"/><circle cx="70" cy="70" r="6" fill="rgba(27,127,111,0.07)"/><line x1="30" y1="30" x2="70" y2="70" stroke="rgba(27,127,111,0.07)" stroke-width="1.5"/><circle cx="50" cy="50" r="3" fill="rgba(27,127,111,0.1)"/></svg>');
+            background-repeat: repeat;
+            background-size: 400px 400px, 500px 500px, 600px 600px;
+            background-position: 0 0, 100px 100px, 200px 200px;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+            100% { transform: translateY(0px) translateX(0px); }
         }
 
         /* Header & Navigation */
@@ -132,6 +167,12 @@
             font-size: 1.1rem;
             opacity: 0.95;
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
         }
 
         /* Tab Navigation */
@@ -560,7 +601,8 @@
     <div class="hero">
         <div class="hero-content">
             <h1>Aerospace Medicine Interest Group</h1>
-            <p>Idaho College of Osteopathic Medicine | Connecting future physicians with aerospace medicine</p>
+            <p class="hero-subtitle">Idaho College of Osteopathic Medicine</p>
+            <p>Connecting future physicians with aerospace medicine</p>
         </div>
     </div>
 
@@ -609,7 +651,7 @@
             <div class="content-section">
                 <div class="content-box">
                     <h2>Career Routes in Aerospace Medicine</h2>
-                    <p>Aerospace medicine offers two primary career pathways. Each has distinct benefits, training requirements, and lifestyle considerations.</p>
+                    <p>Aerospace medicine offers two primary career pathways for physicians. Each has distinct benefits, training requirements, and lifestyle considerations.</p>
                     <div class="routes-container">
                         <div class="route-card">
                             <div class="route-title">Civilian Route</div>
@@ -787,7 +829,7 @@
             <div class="content-section">
                 <div class="content-box">
                     <h2>Research Opportunities</h2>
-                    <p>Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved.</p>
+                    <p>Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved in meaningful medical research that bridges aviation and healthcare.</p>
                     <div class="opportunities-list">
                         <div class="opportunity-card">
                             <div class="opportunity-title">Aviation Medical Examiner Shadowing</div>
