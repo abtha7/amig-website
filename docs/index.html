@@ -23,18 +23,70 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: var(--light);
+            background: #0a0e27;
+            position: relative;
+        }
+
+        /* Animated space background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(0, 63, 135, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at center, #0a0e27 0%, #1a1f3a 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Animated stars */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 60% 70%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50% 50%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 80% 10%, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 10% 90%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40% 80%, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90% 60%, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 30% 60%, #eee, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 70% 40%, #fff, rgba(0,0,0,0));
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            pointer-events: none;
+            z-index: 0;
+            animation: twinkle 5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        main, section, header {
+            position: relative;
+            z-index: 1;
         }
 
         /* Header & Navigation */
         header {
-            background: var(--primary);
+            background: linear-gradient(90deg, rgba(0, 63, 135, 0.95) 0%, rgba(0, 79, 163, 0.95) 100%);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 107, 53, 0.2);
+            border-bottom: 2px solid var(--accent);
         }
 
         nav {
@@ -50,6 +102,9 @@
             font-size: 1.5rem;
             font-weight: bold;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-links {
@@ -61,20 +116,50 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
             font-weight: 500;
         }
 
         .nav-links a:hover {
             color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #004fa3 100%);
+            background: linear-gradient(135deg, rgba(0, 63, 135, 0.85) 0%, rgba(0, 79, 163, 0.85) 100%),
+                        radial-gradient(circle at 30% 60%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
+            border-bottom: 3px solid var(--accent);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '❤️ 🔬';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '✈️ 💊';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
@@ -85,11 +170,13 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 1.1rem;
             opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
         }
 
         /* Main Content */
@@ -100,11 +187,25 @@
         }
 
         section {
-            background: white;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%);
             margin-bottom: 2rem;
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.03) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         h2 {
@@ -114,6 +215,8 @@
             border-bottom: 3px solid var(--accent);
             padding-bottom: 0.5rem;
             display: inline-block;
+            position: relative;
+            z-index: 1;
         }
 
         /* About Section */
@@ -122,6 +225,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             align-items: start;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text h3 {
@@ -139,25 +244,36 @@
             margin-bottom: 0.5rem;
         }
 
+        .about-box {
+            background: linear-gradient(135deg, rgba(0, 63, 135, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(255, 107, 53, 0.2);
+        }
+
         /* Calendar */
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .event-card {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
             padding: 1.5rem;
             border-left: 4px solid var(--accent);
-            border-radius: 4px;
+            border-radius: 8px;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 107, 53, 0.2);
         }
 
         .event-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2), 0 0 15px rgba(255, 107, 53, 0.1);
         }
 
         .event-date {
@@ -184,14 +300,23 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .officer-card {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, rgba(248, 249, 250, 0.8) 100%);
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
             border-top: 4px solid var(--primary);
+            border: 1px solid rgba(0, 63, 135, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .officer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 63, 135, 0.2);
         }
 
         .officer-name {
@@ -217,13 +342,16 @@
             display: grid;
             gap: 1.5rem;
             margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .material-item {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
             padding: 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             border-left: 4px solid var(--primary);
+            border: 1px solid rgba(0, 63, 135, 0.1);
         }
 
         .material-title {
@@ -246,18 +374,20 @@
         }
 
         .request-btn {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, #ff8452 100%);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
 
         .request-btn:hover {
-            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
         }
 
         /* Research Opportunities */
@@ -265,13 +395,22 @@
             display: grid;
             gap: 1.5rem;
             margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .opportunity-card {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, #f0f2f5 100%);
             padding: 1.5rem;
-            border-radius: 6px;
+            border-radius: 8px;
             border-left: 4px solid var(--accent);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
         }
 
         .opportunity-title {
@@ -291,20 +430,24 @@
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .contact-link:hover {
             color: var(--primary);
+            text-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--primary);
+            background: linear-gradient(90deg, rgba(0, 63, 135, 0.95) 0%, rgba(0, 79, 163, 0.95) 100%);
             color: white;
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
+            border-top: 2px solid var(--accent);
+            position: relative;
+            z-index: 1;
         }
 
         /* Responsive */
@@ -332,13 +475,15 @@
         }
 
         .notice {
-            background: #fff3cd;
+            background: linear-gradient(135deg, #fff3cd 0%, #fffbea 100%);
             border-left: 4px solid #ffc107;
             padding: 1rem;
             margin: 1rem 0;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.95rem;
             color: #856404;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -346,7 +491,7 @@
     <!-- Header & Navigation -->
     <header>
         <nav>
-            <div class="logo">✈️ AMIG</div>
+            <div class="logo">✈️ AMIG 💊</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#calendar">Calendar</a></li>
@@ -386,10 +531,10 @@
                     <h3>Join Us</h3>
                     <p>Whether you're curious about aviation physiology, interested in becoming an aerospace medicine physician, or simply want to learn more about this specialized field, we welcome you! Contact one of our officers to get involved.</p>
                 </div>
-                <div style="background: var(--light); padding: 2rem; border-radius: 8px; text-align: center;">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">✈️</div>
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Aerospace Medicine</h3>
-                    <p style="color: #666;">Bridging medicine and aviation for safer, healthier flight</p>
+                <div class="about-box">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✈️ ❤️ 🔬</div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Where Medicine Meets the Sky</h3>
+                    <p style="color: #666;">Bridging aerospace exploration with clinical excellence and patient care</p>
                 </div>
             </div>
         </section>
