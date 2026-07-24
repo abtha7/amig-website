@@ -32,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* Starfield Background */
         body::before {
             content: '';
             position: fixed;
@@ -75,7 +74,6 @@
             50% { opacity: 1; }
         }
 
-        /* Header & Navigation */
         header {
             background: linear-gradient(90deg, rgba(15, 20, 25, 0.97) 0%, rgba(26, 35, 50, 0.97) 100%);
             color: white;
@@ -104,7 +102,6 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(15, 20, 25, 0.85) 0%, rgba(26, 35, 50, 0.85) 100%);
             color: white;
@@ -115,19 +112,6 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(240, 86, 38, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(42, 95, 127, 0.1) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .hero-content {
@@ -157,7 +141,6 @@
             font-size: 1.05rem;
         }
 
-        /* Tab Navigation */
         .tab-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -173,20 +156,6 @@
             border-bottom: 2px solid var(--primary);
             overflow-x: auto;
             scrollbar-width: thin;
-            scrollbar-color: var(--primary) rgba(240, 86, 38, 0.1);
-        }
-
-        .tabs::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .tabs::-webkit-scrollbar-track {
-            background: rgba(240, 86, 38, 0.1);
-        }
-
-        .tabs::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 3px;
         }
 
         .tab-btn {
@@ -212,7 +181,6 @@
             border-bottom-color: var(--primary);
         }
 
-        /* Tab Content */
         .tab-content {
             display: none;
         }
@@ -227,7 +195,6 @@
             to { opacity: 1; }
         }
 
-        /* Main Content */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -271,39 +238,6 @@
             line-height: 1.8;
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .about-text ul {
-            margin-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-text li {
-            margin-bottom: 0.7rem;
-            color: var(--dark);
-        }
-
-        .about-box {
-            background: linear-gradient(135deg, rgba(240, 86, 38, 0.05) 0%, rgba(42, 95, 127, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid var(--primary);
-            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.1);
-        }
-
-        .about-box h3 {
-            color: var(--primary);
-            margin-top: 0;
-        }
-
-        /* Subsection Navigation */
         .subsection-tabs {
             display: flex;
             gap: 0;
@@ -346,280 +280,274 @@
             animation: fadeIn 0.3s ease-in;
         }
 
+        /* Interactive Cards */
+        .pathway-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pathway-card {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            max-height: 200px;
+            overflow: hidden;
+        }
+
+        .pathway-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(240, 86, 38, 0.2);
+            max-height: none;
+        }
+
+        .pathway-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pathway-desc {
+            color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .pathway-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(240, 86, 38, 0.2);
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .pathway-details ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .pathway-details li {
+            margin-bottom: 0.5rem;
+        }
+
         /* Calendar */
         .calendar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .event-card {
+        .calendar-month {
             background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 1.5rem;
-            border-left: 4px solid var(--primary);
             border-radius: 8px;
+            border-left: 4px solid var(--primary);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
         }
 
-        .event-card:hover {
+        .calendar-month:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(240, 86, 38, 0.2);
         }
 
-        .event-date {
+        .month-label {
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
-        .event-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-size: 1.05rem;
+        .calendar-events {
+            display: none;
+            background: rgba(240, 86, 38, 0.05);
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 6px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
 
-        .event-details {
-            font-size: 0.9rem;
+        .calendar-month.expanded .calendar-events {
+            display: block;
+            max-height: 500px;
+        }
+
+        .calendar-event-item {
+            font-size: 0.85rem;
             color: var(--dark);
-            line-height: 1.6;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(240, 86, 38, 0.2);
         }
 
-        /* Officers */
-        .officers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
+        .calendar-event-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        .officer-card {
+        .event-date-small {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        /* News Feed */
+        .news-item {
             background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border-top: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
 
-        .officer-card:hover {
-            transform: translateY(-5px);
+        .news-item:hover {
+            transform: translateY(-3px);
         }
 
-        .officer-name {
+        .news-source {
+            font-size: 0.85rem;
+            color: var(--primary);
             font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--accent);
             margin-bottom: 0.3rem;
         }
 
-        .officer-title {
-            color: var(--primary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
+        .news-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
         }
 
-        .officer-contact {
-            font-size: 0.85rem;
+        .news-desc {
             color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
         }
 
-        .contact-link {
+        .news-link {
+            display: inline-block;
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
-        .contact-link:hover {
+        .news-link:hover {
             color: var(--accent);
         }
 
-        /* Materials/Research/Career */
-        .materials-list {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .material-item {
-            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .material-title {
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-
-        .material-date {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-
-        .material-description {
-            color: var(--dark);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .request-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, #e84a1a 100%);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.3);
-        }
-
-        .request-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(240, 86, 38, 0.4);
-        }
-
-        /* Opportunities */
-        .opportunities-list {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .opportunity-card {
-            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .opportunity-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .opportunity-title {
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-
-        .opportunity-desc {
-            color: var(--dark);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Career Routes */
-        .routes-container {
+        /* Grid Layouts */
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin-top: 1.5rem;
         }
 
-        .route-card {
-            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--primary);
-        }
-
-        .route-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .route-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .route-list li {
-            padding: 0.7rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--dark);
-        }
-
-        .route-list li:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-
-        /* Link Cards */
-        .link-grid {
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        .link-card {
-            background: linear-gradient(135deg, rgba(240, 86, 38, 0.05) 0%, rgba(42, 95, 127, 0.05) 100%);
+        .card {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--gray-bg) 100%);
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid var(--primary);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
-        .link-title {
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 0.5rem;
             font-size: 1.05rem;
         }
 
-        .link-desc {
+        .card-desc {
             color: var(--dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #e84a1a 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(240, 86, 38, 0.4);
+        }
+
+        .timeline {
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item {
+            background: linear-gradient(135deg, rgba(240, 86, 38, 0.05) 0%, rgba(42, 95, 127, 0.05) 100%);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            color: var(--dark);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        .external-link {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(240, 86, 38, 0.3);
+        .timeline-content ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
         }
 
-        .external-link:hover {
-            background: #e84a1a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(240, 86, 38, 0.4);
+        .timeline-content li {
+            margin-bottom: 0.5rem;
         }
 
         .notice {
@@ -632,7 +560,6 @@
             color: var(--dark);
         }
 
-        /* Footer */
         footer {
             background: linear-gradient(90deg, rgba(15, 20, 25, 0.97) 0%, rgba(26, 35, 50, 0.97) 100%);
             color: white;
@@ -653,7 +580,7 @@
                 font-size: 1.8rem;
             }
 
-            .about-content, .routes-container {
+            .grid-2, .pathway-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -666,12 +593,7 @@
             }
 
             .tab-btn {
-                padding: 1rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .subsection-btn {
-                padding: 0.6rem 0.8rem;
+                padding: 1rem 0.8rem;
                 font-size: 0.8rem;
             }
         }
@@ -695,7 +617,9 @@
     <div class="tab-container">
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab(event, 'about')">About</button>
+            <button class="tab-btn" onclick="switchTab(event, 'getting-started')">Getting Started</button>
             <button class="tab-btn" onclick="switchTab(event, 'resources')">Resources</button>
+            <button class="tab-btn" onclick="switchTab(event, 'news')">News</button>
             <button class="tab-btn" onclick="switchTab(event, 'calendar')">Calendar</button>
             <button class="tab-btn" onclick="switchTab(event, 'officers')">Officers</button>
         </div>
@@ -705,197 +629,476 @@
             <div class="content-section">
                 <div class="content-box">
                     <h2>About Our Organization</h2>
-                    <div class="about-content">
-                        <div class="about-text">
-                            <p>The Aerospace Medicine Interest Group is dedicated to exploring the fascinating intersection of medicine and aviation. We bring together medical students, faculty, and professionals interested in the unique challenges and opportunities in aerospace medicine.</p>
-                            
-                            <h3>What We Do</h3>
-                            <ul>
-                                <li>Host guest speakers and clinical educators</li>
-                                <li>Discuss current topics in aerospace medicine</li>
-                                <li>Explore career pathways and opportunities</li>
-                                <li>Connect students with mentors and research opportunities</li>
-                                <li>Build a community of aerospace medicine enthusiasts</li>
-                            </ul>
+                    <p>The Aerospace Medicine Interest Group is dedicated to exploring the fascinating intersection of medicine and aviation. We bring together medical students, faculty, and professionals interested in the unique challenges and opportunities in aerospace medicine.</p>
+                    
+                    <h3>What We Do</h3>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li style="margin-bottom: 0.7rem; color: var(--dark);">Host guest speakers and clinical educators</li>
+                        <li style="margin-bottom: 0.7rem; color: var(--dark);">Discuss current topics in aerospace medicine</li>
+                        <li style="margin-bottom: 0.7rem; color: var(--dark);">Explore career pathways and opportunities</li>
+                        <li style="margin-bottom: 0.7rem; color: var(--dark);">Connect students with mentors and research opportunities</li>
+                        <li style="margin-bottom: 0.7rem; color: var(--dark);">Build a community of aerospace medicine enthusiasts</li>
+                    </ul>
 
-                            <h3>Join Us</h3>
-                            <p>Whether you're curious about aviation physiology, interested in becoming an aerospace medicine physician, or simply want to learn more about this specialized field, we welcome you! Contact one of our officers to get involved.</p>
+                    <h3>Aerospace Medicine</h3>
+                    <p>The medical science of flying safely in the aerospace environment. Aerospace medicine encompasses the prevention and treatment of physiological and medical conditions unique to aviation, including issues related to altitude, acceleration, hypoxia, and spatial disorientation.</p>
+
+                    <h3 style="margin-top: 2rem;">Career Pathways in Aerospace Medicine</h3>
+                    <p>Aerospace medicine offers two distinct career routes. Hover over each to learn more and explore resources:</p>
+                    <div class="pathway-cards">
+                        <div class="pathway-card" onclick="togglePathway(this)">
+                            <div class="pathway-title">Civilian Route</div>
+                            <div class="pathway-desc">
+                                Aviation Medical Examiner positions, commercial airline support, and civil aviation consulting with flexible scheduling.
+                            </div>
+                            <div class="pathway-details">
+                                <strong>Key Areas:</strong>
+                                <ul>
+                                    <li>Aviation Medical Examiner (AME) certification</li>
+                                    <li>Private practice & aeromedical facilities</li>
+                                    <li>Commercial airline medical departments</li>
+                                    <li>Pilot medical evaluations</li>
+                                    <li>Civil aviation consulting</li>
+                                </ul>
+                                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(240, 86, 38, 0.2);">
+                                    <a href="#resources" class="news-link" onclick="switchTab(event, 'resources')">View civilian residency programs →</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="about-box">
-                            <h3>Aerospace Medicine</h3>
-                            <p>The medical science of flying safely in the aerospace environment. Aerospace medicine encompasses the prevention and treatment of physiological and medical conditions unique to aviation.</p>
+
+                        <div class="pathway-card" onclick="togglePathway(this)">
+                            <div class="pathway-title">Military Route</div>
+                            <div class="pathway-desc">
+                                Flight surgeon positions with military branches, specialized aerospace medicine training, and active duty commitment.
+                            </div>
+                            <div class="pathway-details">
+                                <strong>Key Areas:</strong>
+                                <ul>
+                                    <li>Air Force/Navy/Army aerospace medicine residencies</li>
+                                    <li>Flight surgeon positions</li>
+                                    <li>Military pilot medical support</li>
+                                    <li>Advanced hypoxia/G-force training</li>
+                                    <li>Combat aviation medicine</li>
+                                </ul>
+                                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(240, 86, 38, 0.2);">
+                                    <a href="#resources" class="news-link" onclick="switchTab(event, 'resources')">View military residency programs →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 2rem;">Join Us</h3>
+                    <p>Whether you're curious about aviation physiology, interested in becoming an aerospace medicine physician, or simply want to learn more about this specialized field, we welcome you! Contact one of our officers to get involved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting Started Tab -->
+        <div id="getting-started" class="tab-content">
+            <div class="content-section">
+                <div class="content-box">
+                    <h2>Your Path to Aerospace Medicine</h2>
+                    <p>This timeline outlines the typical milestones and actions you should consider at each stage of medical school and beyond to build toward a career in aerospace medicine.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1st Year</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Join AMIG and start building connections</li>
+                                    <li>Explore aerospace medicine basics through interest group meetings</li>
+                                    <li>Focus on core medical science coursework</li>
+                                    <li>Consider shadowing an Aviation Medical Examiner (AME)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1st Year Summer</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Research summer research opportunities in aerospace physiology</li>
+                                    <li>Explore NASA internship programs</li>
+                                    <li>Network with faculty and mentors in aerospace medicine</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2nd Year</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Complete foundational clinical rotations</li>
+                                    <li>Attend AMIG guest speaker sessions</li>
+                                    <li>Start exploring residency program options</li>
+                                    <li>Consider pursuing AME certification</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2nd Year Summer</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Conduct summer research project in aerospace medicine</li>
+                                    <li>Apply for NASA summer internships</li>
+                                    <li>Attend aerospace medicine conferences (ASMA, ASGSR)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">3rd Year</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Complete clinical rotations with aerospace medicine focus if available</li>
+                                    <li>Research military vs civilian pathways</li>
+                                    <li>If military interested: explore HPSP programs early</li>
+                                    <li>Network at national conferences</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">3rd Year Summer</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Final research or rotation opportunities</li>
+                                    <li>Strengthen residency application materials</li>
+                                    <li>Secure strong letters of recommendation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">4th Year</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Apply for NASA aerospace medicine clerkship (April or October)</li>
+                                    <li>Submit aerospace medicine residency applications</li>
+                                    <li>Complete interviews with residency programs</li>
+                                    <li>Match into residency program</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">Post-Medical School</div>
+                            <div class="timeline-content">
+                                <ul>
+                                    <li>Complete internship year (required before residency)</li>
+                                    <li>Enter aerospace medicine residency (2-3 years depending on program)</li>
+                                    <li>Complete Master's degree (usually integrated into residency)</li>
+                                    <li>Board certification in aerospace medicine</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice" style="margin-top: 2rem;">
+                        <strong>Note:</strong> This timeline is a guide. Your specific path may vary based on interests, opportunities, and career goals. Discuss your plans with AMIG officers and faculty mentors!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div id="resources" class="tab-content">
+            <div class="content-section">
+                <div class="content-box">
+                    <h2>Resources & Opportunities</h2>
+                    
+                    <div class="subsection-tabs">
+                        <button class="subsection-btn active" onclick="switchSubsection(event, 'residencies')">Residency Programs</button>
+                        <button class="subsection-btn" onclick="switchSubsection(event, 'research')">Research Opportunities</button>
+                        <button class="subsection-btn" onclick="switchSubsection(event, 'student-research')">Student Research</button>
+                        <button class="subsection-btn" onclick="switchSubsection(event, 'textbooks')">Textbooks & Materials</button>
+                        <button class="subsection-btn" onclick="switchSubsection(event, 'scholarships')">Scholarships</button>
+                    </div>
+
+                    <!-- Residencies -->
+                    <div id="residencies" class="subsection-content active">
+                        <h3>Aerospace Medicine Residency Programs</h3>
+                        <p>There are currently five accredited U.S. residency programs in aerospace medicine. All require completion of an MD/DO and internship year before enrollment.</p>
+
+                        <h4>Civilian Programs</h4>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-title">University of Texas Medical Branch (UTMB) - Galveston, TX</div>
+                                <div class="card-desc">
+                                    Two-year program with clinical rotations supporting commercial airlines, NASA centers, and government agencies.
+                                </div>
+                                <a href="https://www.utmb.edu/spph/aerospace-medicine/residency-program" class="btn" target="_blank">Learn More</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">Mayo Clinic - Rochester, MN</div>
+                                <div class="card-desc">
+                                    Two-year fellowship with training at USAF School of Aerospace Medicine, FAA, NASA, and flight training included. Includes Master's in Public Health.
+                                </div>
+                                <a href="https://www.mayo.edu/" class="btn" target="_blank">Learn More</a>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;">Military Programs</h4>
+                        <div class="grid-3">
+                            <div class="card">
+                                <div class="card-title">Air Force - Wright-Patterson AFB, OH</div>
+                                <div class="card-desc">
+                                    Three-year program (1 academic + 2 practicum). Includes Master's in Public Health.
+                                </div>
+                                <a href="https://www.afrl.af.mil/About-Us/Fact-Sheets/Fact-Sheet-Display/Article/3698065/usafsam-ram-residency-aerospace-medicine/" class="btn" target="_blank">Learn More</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">Navy - Pensacola NAS, FL</div>
+                                <div class="card-desc">
+                                    Specialized aviation medicine training for naval aviators and aircrew.
+                                </div>
+                                <a href="https://www.med.navy.mil/Navy-Medicine-Operational-Training-Command/Naval-Aerospace-Medical-Institute/Residency-in-Aerospace-Medicine/" class="btn" target="_blank">Learn More</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">Army - Fort Novosel, AL</div>
+                                <div class="card-desc">
+                                    36-month program with Master of Public Health from University of West Florida.
+                                </div>
+                                <a href="https://medcoe.army.mil/saam-rams/" class="btn" target="_blank">Learn More</a>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;">Post-Residency Opportunities</h4>
+                        <p>Additional specialization and leadership opportunities available through fellowships and advanced certifications.</p>
+                        <div class="card">
+                            <div class="card-title">Space Medicine Fellowships</div>
+                            <div class="card-desc">
+                                Two-year programs for Emergency Medicine or other specialty residents interested in clinical care and research in space medicine operations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Research Opportunities -->
+                    <div id="research" class="subsection-content">
+                        <h3>Research & Internship Opportunities</h3>
+
+                        <h4>NASA Programs</h4>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-title">NASA JSC Aerospace Medicine Clerkship - Houston, TX</div>
+                                <div class="card-desc">
+                                    4-week intensive clerkship for 4th-year medical students. Offered April & October. Lectures, facility tours, pilot physiology training.
+                                </div>
+                                <a href="https://www.nasa.gov/directorates/esdmd/hhp/aerospace-medicine-clerkship/" class="btn" target="_blank">Apply</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">NASA KSC Medical Education - Florida</div>
+                                <div class="card-desc">
+                                    Programs for 4th-year medical students and residents. Aerospace/occupational medicine focus. Space medicine and astronaut health experience.
+                                </div>
+                                <a href="https://public.ksc.nasa.gov/kscmep/" class="btn" target="_blank">Apply</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">NASA Space Life Sciences Internship</div>
+                                <div class="card-desc">
+                                    Summer internship program through NASA Ames. Research opportunities in space medicine operations and physiology.
+                                </div>
+                                <a href="https://stemgateway.nasa.gov/" class="btn" target="_blank">Apply</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">NASA General Internship Programs</div>
+                                <div class="card-desc">
+                                    Multiple internship opportunities across NASA centers. Spring, Summer, and Fall cycles with rotating deadlines.
+                                </div>
+                                <a href="https://www.nasa.gov/learning-resources/internship-programs/" class="btn" target="_blank">Explore</a>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 2rem;">Research Topics & Resources</h4>
+                        <div class="grid-2">
+                            <div class="card">
+                                <div class="card-title">Altitude & Hypoxia Physiology</div>
+                                <div class="card-desc">
+                                    Research the physiological effects of altitude and hypoxia on human performance.
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">Spatial Disorientation & Vestibular Systems</div>
+                                <div class="card-desc">
+                                    Study vestibular function and spatial disorientation in aviation contexts.
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">Gravitational & Space Research</div>
+                                <div class="card-desc">
+                                    ASGSR Annual Conference features research in gravitational biology, radiation biology, and bioastronautics.
+                                </div>
+                                <a href="https://asgsr.org/" class="btn" target="_blank">Visit ASGSR</a>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-title">NASA Astrobiology & Space Biology</div>
+                                <div class="card-desc">
+                                    Explore research opportunities in NASA's Astrobiology program and space biology divisions.
+                                </div>
+                                <a href="https://science.nasa.gov/biological-physical/data/awg/" class="btn" target="_blank">Explore AWG</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Student Research -->
+                    <div id="student-research" class="subsection-content">
+                        <h3>Student Research at AMIG</h3>
+                        <p>Our members have conducted meaningful research in aerospace medicine. Here are summaries of recent projects:</p>
+
+                        <div class="card" style="margin-top: 1.5rem;">
+                            <div class="card-title">Amrit Bhakta & Jaden Marks - Summer 2025</div>
+                            <div class="card-desc">
+                                <em>Project details to be added</em>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">Frederick Sanders - 2024-2025</div>
+                            <div class="card-desc">
+                                <em>Project details to be added</em>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">Colette Mardirossian - 2024-2025</div>
+                            <div class="card-desc">
+                                <em>Project details to be added</em>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">Samuel Ward - 2024-2025</div>
+                            <div class="card-desc">
+                                <em>Project details to be added</em>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 2rem; font-style: italic; color: #666;">Interested in conducting your own research? Contact any officer for mentorship and opportunities!</p>
+                    </div>
+
+                    <!-- Textbooks & Materials -->
+                    <div id="textbooks" class="subsection-content">
+                        <h3>Recommended Textbooks & Learning Materials</h3>
+                        <p>Essential resources for understanding aerospace medicine principles:</p>
+
+                        <div class="card" style="margin-top: 1.5rem;">
+                            <div class="card-title">To Be Added</div>
+                            <div class="card-desc">
+                                We're currently curating a comprehensive list of recommended textbooks and resources. Check back soon!
+                            </div>
+                        </div>
+
+                        <div class="notice" style="margin-top: 1.5rem;">
+                            <strong>Have suggestions?</strong> Contact one of our officers with recommended textbooks and resources for aerospace medicine study.
+                        </div>
+                    </div>
+
+                    <!-- Scholarships -->
+                    <div id="scholarships" class="subsection-content">
+                        <h3>Scholarships & Funding</h3>
+                        <p>Explore funding opportunities for aerospace medicine education and training:</p>
+
+                        <h4 style="margin-top: 1.5rem;">Military Funding</h4>
+                        <div class="card">
+                            <div class="card-title">HPSP (Health Professions Scholarship Program)</div>
+                            <div class="card-desc">
+                                Air Force, Navy, and Army medical school scholarships covering tuition, fees, and living stipends. Recipients typically pursue flight surgeon and aerospace medicine pathways.
+                            </div>
+                            <a href="https://www.airforce.com/careers/specialty-careers/healthcare" class="btn" target="_blank">Learn More</a>
+                        </div>
+
+                        <h4 style="margin-top: 1.5rem;">Professional Organizations</h4>
+                        <div class="card">
+                            <div class="card-title">AsMA Fellowships & Scholarships</div>
+                            <div class="card-desc">
+                                The Aerospace Medical Association offers scholarships and awards for students and early-career professionals in aerospace medicine.
+                            </div>
+                            <a href="https://asma.org/" class="btn" target="_blank">Visit AsMA</a>
+                        </div>
+
+                        <div class="notice" style="margin-top: 1.5rem;">
+                            <strong>Additional Resources:</strong> Contact AMIG officers for information about additional aerospace medicine scholarships, grants, and funding opportunities.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Resources Tab (Career Routes, Research, Materials) -->
-        <div id="resources" class="tab-content">
+        <!-- News Tab -->
+        <div id="news" class="tab-content">
             <div class="content-section">
                 <div class="content-box">
-                    <h2>Resources & Opportunities</h2>
-                    
-                    <!-- Subsection Navigation -->
-                    <div class="subsection-tabs">
-                        <button class="subsection-btn active" onclick="switchSubsection(event, 'career')">Career Routes</button>
-                        <button class="subsection-btn" onclick="switchSubsection(event, 'research')">Research Opportunities</button>
-                        <button class="subsection-btn" onclick="switchSubsection(event, 'materials')">Meetings & Materials</button>
-                    </div>
+                    <h2>Space Medicine News & Updates</h2>
+                    <p>Latest news from the aerospace medicine community, including updates from ASMA, AMSRO, and ASGSR:</p>
 
-                    <!-- Career Routes Subsection -->
-                    <div id="career" class="subsection-content active">
-                        <h3>Career Routes in Aerospace Medicine</h3>
-                        <p>Aerospace medicine offers two primary career pathways for physicians. Each has distinct benefits, training requirements, and lifestyle considerations.</p>
-                        <div class="routes-container">
-                            <div class="route-card">
-                                <div class="route-title">Civilian Route</div>
-                                <ul class="route-list">
-                                    <li>Aviation Medical Examiner (AME) certification</li>
-                                    <li>Work in private practice or aeromedical facilities</li>
-                                    <li>Conduct pilot medical evaluations</li>
-                                    <li>Telemedicine and remote medical support</li>
-                                    <li>Civil aviation consulting</li>
-                                    <li>Commercial airline medical positions</li>
-                                    <li>Flexible scheduling and location options</li>
-                                </ul>
+                    <div style="margin-top: 2rem;">
+                        <div class="news-item">
+                            <div class="news-source">AsMA</div>
+                            <div class="news-title">International Congress of Aerospace Medicine 2026</div>
+                            <div class="news-desc">
+                                Join AsMA at the 3rd International Congress of Aerospace Medicine (ICAM) in Istanbul, Türkiye, October 1-3, 2026. Early bird registration now open!
                             </div>
-                            <div class="route-card">
-                                <div class="route-title">Military Route</div>
-                                <ul class="route-list">
-                                    <li>Air Force Aerospace Medicine residency</li>
-                                    <li>Flight surgeon positions</li>
-                                    <li>Military pilot and aircrew medical support</li>
-                                    <li>Advanced training in hypoxia and G-force physiology</li>
-                                    <li>High-altitude and pressure suit expertise</li>
-                                    <li>Combat aviation medicine</li>
-                                    <li>Active duty commitment with structured advancement</li>
-                                </ul>
+                            <a href="https://asma.org/education-events/annual-scientific-meeting/" class="news-link" target="_blank">Learn More →</a>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-source">AsMA</div>
+                            <div class="news-title">Class of 2026 Graduates from UTMB Aerospace Medicine Residency</div>
+                            <div class="news-desc">
+                                Five new physicians graduated from the University of Texas Medical Branch Aerospace Medicine Residency program, ready to advance the field of aerospace medicine.
                             </div>
+                            <a href="https://asma.org/" class="news-link" target="_blank">Read More →</a>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-source">AMSRO</div>
+                            <div class="news-title">2026-2027 Executive Elections</div>
+                            <div class="news-desc">
+                                AMSRO is seeking motivated student and resident members for the Elections Committee. Help shape the future of our organization!
+                            </div>
+                            <a href="https://www.amsro.org/" class="news-link" target="_blank">Get Involved →</a>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-source">ASGSR</div>
+                            <div class="news-title">2026 Annual Conference - Gravitational and Space Research</div>
+                            <div class="news-desc">
+                                The American Society for Gravitational and Space Research is hosting its annual conference featuring cutting-edge research in space biology and physics.
+                            </div>
+                            <a href="https://asgsr.org/" class="news-link" target="_blank">Register →</a>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-source">AMSRO</div>
+                            <div class="news-title">NASA Spring 2026 Clerkship - Applications Open</div>
+                            <div class="news-desc">
+                                Interested 4th-year students can now apply for the NASA JSC Spring 2026 Aerospace Medicine Clerkship (April 6 - May 1, 2026). Applications close December 5, 2025.
+                            </div>
+                            <a href="https://www.nasa.gov/directorates/esdmd/hhp/aerospace-medicine-clerkship/" class="news-link" target="_blank">Apply →</a>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-source">AsMA</div>
+                            <div class="news-title">AsMA Annual Scientific Meeting</div>
+                            <div class="news-desc">
+                                The primary conference for aerospace medicine professionals featuring presentations on research, clinical updates, and networking opportunities. Held annually in May.
+                            </div>
+                            <a href="https://asma.org/education-events/annual-scientific-meeting/" class="news-link" target="_blank">Learn More →</a>
                         </div>
                     </div>
 
-                    <!-- Research Opportunities Subsection -->
-                    <div id="research" class="subsection-content">
-                        <h3>Research Opportunities</h3>
-                        <p>Interested in conducting research in aerospace medicine? Below are opportunities for students to get involved in meaningful medical research that bridges aviation and healthcare.</p>
-                        
-                        <h4>NASA Clerkships</h4>
-                        <div class="opportunities-list">
-                            <div class="opportunity-card">
-                                <div class="opportunity-title">NASA Johnson Space Center - Houston, TX</div>
-                                <div class="opportunity-desc">
-                                    Four-week intensive aerospace medicine clerkship for 4th-year medical students. Offered twice annually in April and October. Includes lectures on aerospace medicine topics, pilot physiology, medical certification, and tours of NASA JSC facilities.
-                                </div>
-                                <a href="https://www.nasa.gov/directorates/esdmd/hhp/aerospace-medicine-clerkship/" class="external-link" target="_blank">Learn More</a>
-                            </div>
-
-                            <div class="opportunity-card">
-                                <div class="opportunity-title">NASA Kennedy Space Center - Florida</div>
-                                <div class="opportunity-desc">
-                                    Clerkship available for 4th-year medical students and residents in aerospace or occupational medicine. Accept medical residents in other fields with aerospace medicine or occupational health interests. Hands-on experience with space medicine and astronaut health.
-                                </div>
-                                <a href="https://public.ksc.nasa.gov/kscmep/" class="external-link" target="_blank">Learn More</a>
-                            </div>
-                        </div>
-
-                        <h4>Additional Research Areas</h4>
-                        <div class="opportunities-list">
-                            <div class="opportunity-card">
-                                <div class="opportunity-title">Aviation Medical Examiner Shadowing</div>
-                                <div class="opportunity-desc">
-                                    Shadow an Aviation Medical Examiner to learn about medical certification of pilots and the practical aspects of aerospace medicine in clinical practice.
-                                </div>
-                                <a href="mailto:abhakta@s.icom.edu" class="external-link">Contact for Details</a>
-                            </div>
-
-                            <div class="opportunity-card">
-                                <div class="opportunity-title">Hypoxia & Altitude Research</div>
-                                <div class="opportunity-desc">
-                                    Participate in research studying the physiological effects of altitude and hypoxia. Great opportunity to learn about research methodology and respiratory physiology.
-                                </div>
-                                <a href="mailto:abhakta@s.icom.edu" class="external-link">Contact for Details</a>
-                            </div>
-
-                            <div class="opportunity-card">
-                                <div class="opportunity-title">Spatial Disorientation & Vestibular Research</div>
-                                <div class="opportunity-desc">
-                                    Study the vestibular system and spatial disorientation in aviation contexts. This research has direct clinical applications.
-                                </div>
-                                <a href="mailto:abhakta@s.icom.edu" class="external-link">Contact for Details</a>
-                            </div>
-                        </div>
-
-                        <h4>National Organizations & Conferences</h4>
-                        <div class="link-grid">
-                            <div class="link-card">
-                                <div class="link-title">Aerospace Medical Association (AsMA)</div>
-                                <div class="link-desc">
-                                    The primary organization for aerospace medicine professionals and students. Publishes the journal Aviation, Space, and Environmental Medicine.
-                                </div>
-                                <a href="https://asma.org/" class="external-link" target="_blank">Visit AsMA</a>
-                            </div>
-
-                            <div class="link-card">
-                                <div class="link-title">AMSRO (Aerospace Medicine Student & Resident Organization)</div>
-                                <div class="link-desc">
-                                    Official student and resident organization of AsMA. Provides mentorship, networking, and education opportunities.
-                                </div>
-                                <a href="https://www.amsro.org/" class="external-link" target="_blank">Visit AMSRO</a>
-                            </div>
-
-                            <div class="link-card">
-                                <div class="link-title">AsMA Annual Scientific Meeting - May</div>
-                                <div class="link-desc">
-                                    Premier annual conference featuring presentations on cutting-edge research, clinical updates, and networking opportunities.
-                                </div>
-                                <a href="https://asma.org/education-events/annual-scientific-meeting/" class="external-link" target="_blank">Learn More</a>
-                            </div>
-
-                            <div class="link-card">
-                                <div class="link-title">ASGSR (American Society for Gravitational and Space Research)</div>
-                                <div class="link-desc">
-                                    Organization focused on biological and physical sciences research in space. Annual conference showcases research in gravitational biology and bioastronautics.
-                                </div>
-                                <a href="https://asgsr.org/" class="external-link" target="_blank">Visit ASGSR</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Materials Subsection -->
-                    <div id="materials" class="subsection-content">
-                        <h3>Meetings & Materials</h3>
-                        <div class="notice">
-                            <strong>Note:</strong> Recordings will only be given upon request and are subject to change.
-                        </div>
-                        <div class="materials-list">
-                            <div class="material-item">
-                                <div class="material-title">Introduction to Aerospace Medicine</div>
-                                <div class="material-date">October 6, 2026</div>
-                                <div class="material-description">
-                                    Comprehensive overview covering the basics of aerospace medicine, pilot physiology, and medical certification requirements.
-                                </div>
-                                <button class="request-btn" onclick="requestRecording('Introduction to Aerospace Medicine')">Request Recording</button>
-                            </div>
-
-                            <div class="material-item">
-                                <div class="material-title">Aviation Physiology Workshop</div>
-                                <div class="material-date">November 3, 2026</div>
-                                <div class="material-description">
-                                    In-depth exploration of hypoxia, decompression sickness, spatial disorientation, and other physiological effects of flight.
-                                </div>
-                                <button class="request-btn" onclick="requestRecording('Aviation Physiology Workshop')">Request Recording</button>
-                            </div>
-
-                            <div class="material-item">
-                                <div class="material-title">Career Panel Discussion</div>
-                                <div class="material-date">December 1, 2026</div>
-                                <div class="material-description">
-                                    Q&A session with practicing aerospace medicine physicians discussing their career paths and experiences.
-                                </div>
-                                <button class="request-btn" onclick="requestRecording('Career Panel Discussion')">Request Recording</button>
-                            </div>
-                        </div>
+                    <div class="notice" style="margin-top: 2rem;">
+                        <strong>Stay Connected:</strong> Follow ASMA, AMSRO, and ASGSR on social media and visit their websites regularly for the latest opportunities and news in aerospace medicine.
                     </div>
                 </div>
             </div>
@@ -905,46 +1108,131 @@
         <div id="calendar" class="tab-content">
             <div class="content-section">
                 <div class="content-box">
-                    <h2>Event Calendar</h2>
-                    <p>Join us for upcoming meetings and events. Check back regularly for updates!</p>
+                    <h2>Event Calendar (Aug 2026 - July 2027)</h2>
+                    <p>Click on any month to view events and important dates:</p>
+                    
                     <div class="calendar-grid">
-                        <div class="event-card">
-                            <div class="event-date">September 15, 2026</div>
-                            <div class="event-title">Organizational Meeting</div>
-                            <div class="event-details">
-                                <strong>Time:</strong> 6:00 PM<br>
-                                <strong>Location:</strong> TBA<br>
-                                <strong>Description:</strong> Meet the officers and learn about the year ahead!
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">August 2026</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Aug 15</div>
+                                    <div>New Academic Year Begins</div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="event-card">
-                            <div class="event-date">October 6, 2026</div>
-                            <div class="event-title">Guest Speaker: Introduction to Aerospace Medicine</div>
-                            <div class="event-details">
-                                <strong>Time:</strong> 6:00 PM<br>
-                                <strong>Location:</strong> TBA<br>
-                                <strong>Description:</strong> An overview of the field and career opportunities.
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">September 2026</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Sep 15</div>
+                                    <div>AMIG Organizational Meeting</div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="event-card">
-                            <div class="event-date">November 3, 2026</div>
-                            <div class="event-title">Aviation Physiology Workshop</div>
-                            <div class="event-details">
-                                <strong>Time:</strong> 6:00 PM<br>
-                                <strong>Location:</strong> TBA<br>
-                                <strong>Description:</strong> Dive deep into the physiological challenges of flight.
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">October 2026</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Oct 1-3</div>
+                                    <div>ICAM 2026 - Istanbul</div>
+                                </div>
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Oct 6</div>
+                                    <div>Guest Speaker: Intro to Aerospace Medicine</div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="event-card">
-                            <div class="event-date">December 1, 2026</div>
-                            <div class="event-title">Career Panel Discussion</div>
-                            <div class="event-details">
-                                <strong>Time:</strong> 6:00 PM<br>
-                                <strong>Location:</strong> TBA<br>
-                                <strong>Description:</strong> Hear from practicing aerospace medicine physicians.
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">November 2026</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Nov 3</div>
+                                    <div>Aviation Physiology Workshop</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">December 2026</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Dec 1</div>
+                                    <div>Career Panel Discussion</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">January 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Jan 15</div>
+                                    <div>Spring Semester Begins</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">February 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Feb 12</div>
+                                    <div>Residency Preparation Workshop</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">March 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Mar 19</div>
+                                    <div>Flight Physiology Symposium</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">April 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Apr 6-May 1</div>
+                                    <div>NASA JSC Clerkship</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">May 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">May (TBA)</div>
+                                    <div>AsMA Annual Scientific Meeting</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">June 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Jun 1</div>
+                                    <div>Summer Research Opportunities Begin</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-month" onclick="toggleCalendarMonth(this)">
+                            <div class="month-label">July 2027</div>
+                            <div class="calendar-events">
+                                <div class="calendar-event-item">
+                                    <div class="event-date-small">Jul 30</div>
+                                    <div>End of Fiscal Year</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -958,45 +1246,36 @@
                 <div class="content-box">
                     <h2>Meet the Officers</h2>
                     <p>Our leadership team is here to support you and keep our community thriving.</p>
-                    <div class="officers-grid">
-                        <div class="officer-card">
-                            <div class="officer-name">Amrit Bhakta</div>
-                            <div class="officer-title">President</div>
-                            <div class="officer-contact">
-                                <a href="mailto:abhakta@s.icom.edu" class="contact-link">abhakta@s.icom.edu</a>
-                            </div>
+                    
+                    <div class="grid-3" style="margin-top: 2rem;">
+                        <div class="card">
+                            <div class="card-title">Amrit Bhakta</div>
+                            <div style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">President</div>
+                            <a href="mailto:abhakta@s.icom.edu" class="btn">Contact</a>
                         </div>
 
-                        <div class="officer-card">
-                            <div class="officer-name">William Cuthbertson</div>
-                            <div class="officer-title">Vice President</div>
-                            <div class="officer-contact">
-                                <a href="mailto:wcuthbertson@s.icom.edu" class="contact-link">wcuthbertson@s.icom.edu</a>
-                            </div>
+                        <div class="card">
+                            <div class="card-title">William Cuthbertson</div>
+                            <div style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Vice President</div>
+                            <a href="mailto:wcuthbertson@s.icom.edu" class="btn">Contact</a>
                         </div>
 
-                        <div class="officer-card">
-                            <div class="officer-name">Jaden Marks</div>
-                            <div class="officer-title">Events Chair</div>
-                            <div class="officer-contact">
-                                <a href="mailto:jmarks@s.icom.edu" class="contact-link">jmarks@s.icom.edu</a>
-                            </div>
+                        <div class="card">
+                            <div class="card-title">Jaden Marks</div>
+                            <div style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Events Chair</div>
+                            <a href="mailto:jmarks@s.icom.edu" class="btn">Contact</a>
                         </div>
 
-                        <div class="officer-card">
-                            <div class="officer-name">Anson Konstantinopoulos</div>
-                            <div class="officer-title">Outreach Chair</div>
-                            <div class="officer-contact">
-                                <a href="mailto:akonstantinopoulos@s.icom.edu" class="contact-link">akonstantinopoulos@s.icom.edu</a>
-                            </div>
+                        <div class="card">
+                            <div class="card-title">Anson Konstantinopoulos</div>
+                            <div style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Outreach Chair</div>
+                            <a href="mailto:akonstantinopoulos@s.icom.edu" class="btn">Contact</a>
                         </div>
 
-                        <div class="officer-card">
-                            <div class="officer-name">Megh Jariwala</div>
-                            <div class="officer-title">Treasurer</div>
-                            <div class="officer-contact">
-                                <a href="mailto:mjariwala@s.icom.edu" class="contact-link">mjariwala@s.icom.edu</a>
-                            </div>
+                        <div class="card">
+                            <div class="card-title">Megh Jariwala</div>
+                            <div style="color: var(--primary); font-weight: 500; margin-bottom: 1rem;">Treasurer</div>
+                            <a href="mailto:mjariwala@s.icom.edu" class="btn">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -1016,8 +1295,13 @@
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            document.getElementById(tabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
+            const element = document.getElementById(tabName);
+            if (element) {
+                element.classList.add('active');
+                if (evt && evt.currentTarget) {
+                    evt.currentTarget.classList.add('active');
+                }
+            }
         }
 
         function switchSubsection(evt, sectionName) {
@@ -1031,11 +1315,12 @@
             evt.currentTarget.classList.add('active');
         }
 
-        function requestRecording(title) {
-            const email = prompt('Please enter your email address:');
-            if (email) {
-                alert(`Thank you! We've noted your request for "${title}".\n\nWe'll reach out to you at ${email} with the recording link.`);
-            }
+        function togglePathway(element) {
+            element.classList.toggle('expanded');
+        }
+
+        function toggleCalendarMonth(element) {
+            element.classList.toggle('expanded');
         }
     </script>
 </body>
